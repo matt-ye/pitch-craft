@@ -8,11 +8,13 @@
 
 ## 安裝
 
-Claude Code：把整個資料夾放到 `~/.claude/skills/pitch-craft/`，開新對話就會自動觸發。
+Claude Code：clone 到 `~/.claude/skills/pitch-craft/`，開新對話就會自動觸發。
 
 ```bash
-cp -r pitch-craft ~/.claude/skills/pitch-craft
+git clone https://github.com/matt-ye/pitch-craft.git ~/.claude/skills/pitch-craft
 ```
+
+之後更新只要在該目錄 `git pull`。
 
 Codex：`codex exec -C pitch-craft "讀取 ./SKILL.md，然後…（你的要求）"`。Cursor：放到 `~/.cursor/skills/pitch-craft/`。
 
