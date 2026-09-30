@@ -1,0 +1,54 @@
+{
+  "skill_name": "pitch-craft",
+  "evals": [
+    {
+      "id": 1,
+      "name": "review-business-zh-5min",
+      "prompt": "幫我看這份稿。校內創業競賽，5 分鐘，投影片最多 10 頁，之後有 3 分鐘 Q&A，評審是兩位創投加一位教授。講稿在 evals/fixtures/draft_zh_business.md。我想知道結構合不合適、會不會超時、評審可能問什麼，然後幫我改。",
+      "expected_output": "先推斷情境只補問缺的項目；辨識既有稿的結構並做適配度評量；跑 timing_check 指出超時；135 分評量報告含最弱三項與處方；四欄編修表而非直接覆蓋；投影片逐頁規劃表通過 slide_plan_check；四原型 Q&A 預測表；市場數字標「來源待補」而不是補一個數字。",
+      "files": [
+        "evals/fixtures/draft_zh_business.md"
+      ],
+      "assertions": [
+        "結構辨識與適配評量：輸出對既有稿辨識出最接近的結構，並對至少一個結構給出分項適配度分數（六準則或總分）",
+        "超時判斷有數字：輸出給出原稿口說估時（秒或分）並明確判定是否超過 300 秒",
+        "市場數字標來源待補：原稿的「三百億」「四百萬」被標為需補來源，且輸出沒有新增任何帶出處的統計數字",
+        "原稿未被覆蓋且改動可追溯：fixture 檔內容不變；改稿以「原句／為什麼改／改成」形式或等效標註呈現",
+        "Q&A 預測 ≥5 題且每題歸屬評審類型（創投／教授或原型）",
+        "投影片規劃逐頁 ≤10 頁（備援頁另計），每頁有結論式標題句",
+        "修改後講稿收尾含明確的 The Ask（要什麼、要多少或要誰）",
+        "縮寫寫全名：WHWW／WHAC／3W 等縮寫第一次出現時附全名括號（若未使用縮寫則視為通過）"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "draft-personal-en-3min",
+      "prompt": "I have to give a 3-minute English talk to a selection committee on why I should get the exchange slot at a US university. No slides required but allowed. My notes: OT student, ran a fall-prevention workshop for 40 elders last year, failed my first grant application, want to study assistive tech design there and bring a course back. Can you write it and tell me how to practice?",
+      "expected_output": "draft 模式；用個人申請型結構（現在-過去-未來或 Public Narrative）並說明為什麼；講稿落在 300–330 詞並附 timing_check 輸出；開場與收尾各給選項；含 The Ask（會帶回什麼）；失敗經驗以 STAR 講成改變；Q&A 用個人申請題組；排練計畫依 T-14/T-7/T-3/T-1；不編造機構名或數據。",
+      "files": [],
+      "assertions": [
+        "講稿詞數落在 270–420 詞且輸出明示估時",
+        "明示採用的結構並說明為何適合 3 分鐘個人申請情境",
+        "講稿含「會帶回什麼」的 The Ask（course／bring back／return 等明確語句）",
+        "補助申請失敗的經驗有寫進講稿，並講成學到什麼或改變了什麼",
+        "沒有編造具體大學名稱、機構名或帶出處的統計數字",
+        "排練計畫有相對時程（例如 T-7／T-3／前一天）與計時門檻（秒數或占時限比例）",
+        "Q&A 預測 ≥3 題且包含「為什麼是你」「你會帶回什麼」「失敗經驗」任兩題"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "structure-fit-research-8min",
+      "prompt": "我的研究成果簡報 8 分鐘，目前是 IMRD 四段，但評審是業界的人不是學者。這樣合適嗎？要不要換成 WHWW？不用幫我改稿，先告訴我結構要不要換。",
+      "expected_output": "只做站 1 推斷與站 2：對 IMRD 與 WHWW（Why／What／How／What If）各打六準則適配度，總分與判讀，指出評審決策邏輯那項的差異；給調整建議（例如結論先行、保留方法段但縮短）；不寫講稿、不做投影片；縮寫寫全名。",
+      "files": [],
+      "assertions": [
+        "IMRD 與 WHWW 兩個結構都被評量並給出可比較的分數或逐準則對照",
+        "指出評審是業界決策者因此傾向結論先行／先講 so what，並以此作為判斷依據",
+        "給出具體調整建議（例如結論先行、方法段縮短、加 What If），不只選邊",
+        "尊重範圍：輸出不含改寫後的講稿、不含投影片規劃",
+        "WHWW 第一次出現時附全名（Why／What／How／What If）"
+      ]
+    }
+  ]
+}
